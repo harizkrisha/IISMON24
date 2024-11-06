@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Card, CardContent } from "@/components/ui/card"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../components/ui/carousel"
 import { Link } from 'react-router-dom'
+import Navbar from '../components/navbar'
 
 import AustraliaLand from '../assets/svgs/navAssets/australia-land.svg'
 import ScrollDown from '../assets/svgs/navAssets/scroll-down.svg'
@@ -34,37 +35,24 @@ export default function Homepage() {
     <section className='overflow-x-hidden h-screen'>
       <motion.section className='h-screen'>
         {/* Navbar */}
-        <motion.nav className='flex w-screen justify-between items-center py-10 px-12'>
-          <motion.div>
-            <motion.img src={AustraliaLand} className='w-[3rem]'></motion.img>
-          </motion.div>
-          <motion.div>
-            <motion.ul className='flex gap-x-10 font-helveticaBlack'>
-              <motion.li>
-                <motion.a href="/awardees">Awardees</motion.a>
-              </motion.li>
-              <motion.li>
-                <motion.a href="/cities">Our Cities</motion.a>
-              </motion.li>
-              <motion.li>
-                <motion.a href="/about">About</motion.a>
-              </motion.li>
-            </motion.ul>
-          </motion.div>
-        </motion.nav>
+        <Navbar />
 
         {/* HERO SECTION */}
         <motion.div className='px-12 pt-12 flex flex-col min-h-[80vh] justify-between'>
           <motion.div>
-            <h1 className='font-helveticaMedium font-[550]' style={{ fontSize: 'var(--font-7xl)' }}>
-              Exchange Beyond Borders
+            <h1 className='font-helveticaMedium font-[550] flex gap-x-4' style={{ fontSize: 'var(--font-7xl)' }}>
+              <motion.span initial={{ opacity:0, x:-25 }} whileInView={{ opacity:1, x:0 }} transition={{ duration:.7, ease:'easeInOut' }}>Exchange</motion.span>
+              <motion.span initial={{ opacity:0, x:-25 }} whileInView={{ opacity:1, x:0 }} transition={{ duration:.9, ease:'easeInOut' }}>Beyond</motion.span>
+              <motion.span initial={{ opacity:0, x:-25 }} whileInView={{ opacity:1, x:0 }} transition={{ duration:1.1, ease:'easeInOut' }}>Borders</motion.span>
             </h1>
-            <p className='font-helveticaThin font-[200]' style={{ fontSize: 'var(--font-3xl)' }}>
-              discover australia; discover yourself!
+            <p className='font-helveticaThin font-[200] flex gap-x-4' style={{ fontSize: 'var(--font-3xl)' }}>
+              <motion.span initial={{ opacity:0, y:-25 }} whileInView={{ opacity:1, y:0 }} transition={{ duration:.6, ease:'easeInOut' }}>discover australia;</motion.span>
+              <motion.span initial={{ opacity:0, y:-25 }} whileInView={{ opacity:1, y:0 }} transition={{ duration:.8, ease:'easeInOut' }}>discover yourself!</motion.span>
             </p>
           </motion.div>
-          <motion.div className='w-full flex justify-center'>
-            <img src={ScrollDown} alt="Scroll down"></img>
+          <motion.div className='w-full flex justify-center flex-col items-center gap-y-4'>
+            <motion.p initial={{ opacity:0, y:-25 }} whileInView={{ opacity:1, y:0 }} transition={{ duration:.8, ease:'easeInOut' }} className='font-helveticaThin font-[200]'>Scroll Down!</motion.p>
+            <motion.img initial={{ opacity:0, y:-25 }} whileInView={{ opacity:1, y:0 }} transition={{ duration:.6, ease:'easeInOut' }} src={ScrollDown} className='max-w-[4rem]' alt="Scroll down"></motion.img>
           </motion.div>
         </motion.div>
       </motion.section>
@@ -72,12 +60,12 @@ export default function Homepage() {
       {/* ABOUT US SECTION */}
       <motion.section className='px-12 flex justify-evenly gap-10 h-[80%] my-10'>
         <motion.div className='flex flex-col flex-1 h-full justify-between'>
-          <motion.div>
-            <h2 className='font-helveticaMedium font-[550]' style={{ fontSize: 'var(--font-7xl)' }}>
+          <motion.div >
+            <motion.h2 initial={{ opacity:0, x:-25 }} whileInView={{ opacity:1, x:0 }} transition={{ duration:.7, ease:'easeInOut' }} className='font-helveticaMedium font-[550]' style={{ fontSize: 'var(--font-7xl)' }}>
               About Us!
-            </h2>
+            </motion.h2>
           </motion.div>
-          <motion.div className='text-justify gap-y-5 flex flex-col text-xl xl:text-2xl'>
+          <motion.div initial={{ opacity:0, x:-25 }} whileInView={{ opacity:1, x:0 }} transition={{ duration:.7, ease:'easeInOut' }} className='text-justify gap-y-5 flex flex-col text-xl xl:text-2xl'>
             <p>This platform captures the transformative journeys of students who took part in exchange programs across Australia.
               Through authentic stories, practical tips, and hidden discoveries, we hope to inspire future students to take the
               leap—gaining not just academic enrichment, but new perspectives, friendships, and personal growth along the way.</p>
@@ -91,7 +79,7 @@ export default function Homepage() {
         <motion.div className='flex-1 flex flex-row gap-2 h-full'>
           {/* Left Column */}
           <motion.div className='flex-1 flex flex-col gap-2 justify-between'>
-            <Card className='h-[calc(100%*0.30)] border-0 bg-transparent shadow-none'>
+            <motion.Card initial={{ opacity:0 }} whileInView={{ opacity:1 }} transition={{ duration:.7, ease:'easeInOut' }} className='h-[calc(100%*0.30)] border-0 bg-transparent shadow-none'>
               <CardContent className='p-1 h-full'>
                 <img
                   src={PhotoOne}
@@ -99,9 +87,9 @@ export default function Homepage() {
                   alt='Photo One'
                 />
               </CardContent>
-            </Card>
+            </motion.Card>
 
-            <Card className='h-[calc(100%*0.45)] border-0 bg-transparent shadow-none'>
+            <motion.Card initial={{ opacity:0 }} whileInView={{ opacity:1 }} transition={{ duration:.7, ease:'easeInOut' }} className='h-[calc(100%*0.45)] border-0 bg-transparent shadow-none'>
               <CardContent className='p-1 h-full'>
                 <img
                   src={PhotoThree}
@@ -109,9 +97,9 @@ export default function Homepage() {
                   alt='Photo Three'
                 />
               </CardContent>
-            </Card>
+            </motion.Card>
 
-            <Card className='h-[calc(100%*0.25)] border-0 bg-transparent shadow-none'>
+            <motion.Card initial={{ opacity:0 }} whileInView={{ opacity:1 }} transition={{ duration:.7, ease:'easeInOut' }} className='h-[calc(100%*0.25)] border-0 bg-transparent shadow-none'>
               <CardContent className='p-1 h-full'>
                 <img
                   src={PhotoFive}
@@ -119,12 +107,12 @@ export default function Homepage() {
                   alt='Photo Five'
                 />
               </CardContent>
-            </Card>
+            </motion.Card>
           </motion.div>
 
           {/* Right Column */}
           <motion.div className='flex-1 flex flex-col gap-2 justify-between'>
-            <Card className='h-[calc(100%*0.50)] border-0 bg-transparent shadow-none'>
+            <motion.Card initial={{ opacity:0 }} whileInView={{ opacity:1 }} transition={{ duration:.9, ease:'easeInOut' }} className='h-[calc(100%*0.50)] border-0 bg-transparent shadow-none'>
               <CardContent className='p-1 h-full'>
                 <img
                   src={PhotoTwo}
@@ -132,9 +120,9 @@ export default function Homepage() {
                   alt='Photo Two'
                 />
               </CardContent>
-            </Card>
+            </motion.Card>
 
-            <Card className='h-[calc(100%*0.24)] border-0 bg-transparent shadow-none'>
+            <motion.Card initial={{ opacity:0 }} whileInView={{ opacity:1 }} transition={{ duration:.9, ease:'easeInOut' }} className='h-[calc(100%*0.24)] border-0 bg-transparent shadow-none'>
               <CardContent className='p-1 h-full'>
                 <img
                   src={PhotoFour}
@@ -142,9 +130,9 @@ export default function Homepage() {
                   alt='Photo Four'
                 />
               </CardContent>
-            </Card>
+            </motion.Card>
 
-            <Card className='h-[calc(100%*0.25)] border-0 bg-transparent shadow-none'>
+            <motion.Card initial={{ opacity:0 }} whileInView={{ opacity:1 }} transition={{ duration:.9, ease:'easeInOut' }} className='h-[calc(100%*0.25)] border-0 bg-transparent shadow-none'>
               <CardContent className='p-1 h-full'>
                 <img
                   src={PhotoSix}
@@ -152,7 +140,7 @@ export default function Homepage() {
                   alt='Photo Six'
                 />
               </CardContent>
-            </Card>
+            </motion.Card>
           </motion.div>
         </motion.div>
       </motion.section>
